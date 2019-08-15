@@ -24,4 +24,14 @@ class DiaryController extends Controller
         return view('diaries.create');
     }
 
+    public function store(Request $request)
+{
+    $diary = new Diary(); //Diaryモデルをインスタンス化
+
+    $diary->title = $request->title; //画面で入力されたタイトルを代入
+    $diary->body = $request->body; //画面で入力された本文を代入
+    $diary->save(); //DBに保存
+
+    return redirect()->route('diary.index'); //一覧ページにリダイレクト
+}
     }
