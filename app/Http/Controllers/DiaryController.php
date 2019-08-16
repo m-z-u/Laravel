@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Diary; // App/Diaryクラスを使用する宣言
+use App\Http\Requests\CreateDiary;
 use Illuminate\Http\Request;
 
 class DiaryController extends Controller
@@ -24,7 +25,8 @@ class DiaryController extends Controller
         return view('diaries.create');
     }
 
-    public function store(Request $request)
+//$request == リクエストの情報が入った変数
+    public function store(CreateDiary $request)
 {
     $diary = new Diary(); //Diaryモデルをインスタンス化
 
